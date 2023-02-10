@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        body *{
+            font-size: 2rem;
+            font-family: "Jua";
+        }
+        #m1>img{
+            border: 1px solid red;
+            width: 100px;
+            height: 100px;
+        } 
+        #m1>a>img{
+            border: 1px solid magenta;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h3>marquee 기본값</h3>
+    <marquee>
+        <b>Have a Nice Day!!</b>
+    </marquee>
+    <br>
+
+    <h3>marquee 기본값 - right로 변경</h3>
+    <marquee direction="right">
+        <b>Have a Nice Day!!</b>
+    </marquee>
+    <br>
+
+    <h3>marquee 기본값 - right,slide로 변경</h3>
+    <marquee direction="right" behavior="slide">
+        <b style="color: aqua;">Have a Nice Day!!</b>
+    </marquee>
+    <br>
+
+    <h3>marquee 기본값 - right,alternate(왔다갔다)로 변경</h3>
+    <marquee direction="right" behavior="alternate" scrollamount="25">
+        <b style="color: aqua; background-color: bisque;">Have a Nice Day!!</b>
+    </marquee>
+    <br>
+
+    <h3>사진에 적용해 보자</h3>
+    <marquee id="m1" direction="right">
+        <a href="http://www.naver.com" target="_new">
+            <img src="../photo/K-035.png">
+        </a>
+        
+        <img src="../photo/K-036.png">
+        <img src="../photo/K-037.png">
+        <img src="../photo/K-038.png">
+        <img src="../photo/K-039.png">
+    </marquee>
+    <br>
+
+</body>
+</html>

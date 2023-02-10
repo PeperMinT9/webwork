@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        body * {
+            font-size: 1.5rem;
+            font-family: 'Single Day';
+        }
+    </style>
+</head>
+<body>
+    <div style="margin: 30px 30px;">
+        <h3>width 속성 변경하기 예제</h3>
+        <img id="photo1" src="../photo/K-035.png" width="200">
+        <br><br>
+        <button type="button" id="btn1">크게</button>
+        <button type="button" id="btn2">작게</button>
+    </div>
+    <script>
+        var photo1 = document.getElementById("photo1");
+        document.getElementById("btn1").onclick = function() {
+            var photo_width = Number(photo1.getAttribute("width"));
+            console.log(photo_width)
+            photo1.setAttribute("width", photo_width + 10)
+
+        }
+        document.getElementById("btn2").onclick = function() {
+            var photo_width = Number(photo1.getAttribute("width"));
+            console.log(photo_width)
+            photo1.setAttribute("width", photo_width - 10)
+        }
+    </script>
+
+    <div>
+        <h3>width 속성 변경하기 예제</h3>
+        <img id="photo2" src="../photo/K-036.png" style="width: 200px;">
+        <br><br>
+        <button type="button" id="btn3">크게</button>
+        <button type="button" id="btn4">작게</button>
+    </div>
+    <script>
+        var photo2 = document.getElementById("photo2");
+
+        document.getElementById("btn3").onclick = function() {
+            var w = parseInt(photo2.style.width, 10);
+            console.log(w, typeof(w));
+
+            photo2.style.width = (w + 10) + "px";
+        }
+        document.getElementById("btn4").onclick = function() {
+            var w = parseInt(photo2.style.width, 10);
+
+            photo2.style.width = (w - 10) + "px";
+        }
+    </script>
+</body>
+</html>

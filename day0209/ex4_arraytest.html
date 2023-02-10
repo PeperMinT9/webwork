@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        img {
+            width: 100px;
+            height: 100px;
+        }
+        td {
+            border: 2px dashed black;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        //moviestar 사진과 함께 출력할 이름을 배열에 넣은후 사진과 이름 출력하기
+        var starname = new Array();
+        for(var i = 0; i < 15; i++) {
+            if (i < 10) {
+                starname.push(["K-0" + i + ".png", i + "번 사진"])
+            }
+            if (i >= 10 && i < 100) {
+                starname.push(["K-" + i + ".png", i + "번 사진"])
+            }
+            
+            console.log(starname[i][0] + " : " + starname[i][1])
+        }
+        
+    </script>
+    <table border="1" style="width: 600px; border-collapse: collapse;">
+        <caption><b>[깔끔한 사진]</b></caption>
+        <table>
+            <script>
+                var length_name = starname.length
+                var col_num = 3; // 사진 글 세트 몇줄로 할지
+                var repeat_line = length_name / col_num // 각 줄 내부에서 몇번 출력할지
+                for(var i = 0; i < col_num; i++) {
+                    document.write("<tr>")
+                    for(var j = 0, h = j + i * 5; j < repeat_line; j++, h++) {
+                        //document.write("<td>" + "<img src='../photo/" + starname[h][0] + "'>" + "</td>")
+                        document.write(`<td><image src="../photo/${starname[h][0]}"></td>`)
+                    }
+                    document.write("</tr><tr>")
+                    for(var k = 0, h = k + i * 5; k < repeat_line; k++, h++) {
+                        //document.write("<td>" + "<b>" + starname[h][1] + "</b>" + "</td>")
+                        document.write(`<td><b>${starname[h][0]}</b></td>`)
+                    }
+                    document.write("</tr>")
+                }
+
+        </script>
+        </table>
+    </table>
+</body>
+</html>

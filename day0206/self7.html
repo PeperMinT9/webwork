@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        body * {
+            font-family: "Nanum Pen Script";
+            font-size: 2rem;
+        }
+        table.sawon_table {
+            width: 500px;
+            border: 5px inset gray;
+            border-collapse: collapse;
+        }
+        table.sawon_table>thead>tr {
+            border: 5px double gray;
+        }
+        table.sawon_table>thead>tr>th {
+            border-right: 2px dotted gray;
+            background-color: aquamarine;
+        }
+        table.sawon_table tbody td{
+            border: 1px solid gray;
+        }
+
+        table.sawon_table>tbody>tr>td>img {
+            width: 100px;
+            height: 100px;
+            border-radius: 100px;
+        }
+    </style>
+</head>
+<body>
+    <table class="sawon_table">
+        <caption>사내 직원 현황</caption>
+        <thead>
+            <tr>
+                <th>성별</th><th>이름</th><th>전공</th><th>사진</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="2" bgcolor="magenta">여자</td>
+                <td>엄정화</td>
+                <td>음악</td>
+                <td align="center"><img src="../photo/K-035.png"></td>
+            </tr>
+            <tr>
+                <td>엄정화</td>
+                <td>미술</td>
+                <td align="center"><img src="../photo/K-036.png"></td>
+            </tr>
+            <tr>
+                <td rowspan="3" bgcolor="pink">남자</td>
+                <td>아무개1</td>
+                <td>음악</td>
+                <td align="center"><img src="../photo/K-037.png"></td>
+            </tr>
+            <tr>
+                <td>아무개2</td>
+                <td>미술</td>
+                <td align="center"><img src="../photo/K-038.png"></td>
+            </tr>
+            <tr>
+                <td>아무개3</td>
+                <td>수학</td>
+                <td align="center"><img src="../photo/K-039.png"></td>
+            </tr>
+        </tbody>
+    </table>
+    
+</body>
+</html>

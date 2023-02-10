@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .photo {
+            width: 100px;
+            height: 100px;
+        }
+        td {
+            border: 3px dashed magenta;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // 각종 데이터를 다양한 방법으로 담아보자
+        var arrphoto = new Array();
+        arrphoto.push("../photo/K-035.png");
+        arrphoto.push("../photo/K-036.png");
+        arrphoto.push("../photo/K-037.png");
+        arrphoto.push("../photo/K-038.png");
+
+        var arrtitle = ["햄마요덮밥", "샌드위치", "원피스", "사진4"];
+        var arrcolor = ["#fafad2", "#c0c0c0", "#ffb6c1", "#98fb98"];
+        
+        var arrprice = new Array();
+        arrprice[0] = 10000;
+        arrprice[1] = 11000;
+        arrprice[2] = 12000;
+        arrprice[3] = 13000;
+
+        var sum = 0;
+    </script>
+
+    <table style="border-collapse: collapse; border: 5px solid aqua;">
+        <thead>
+            <tr>
+                <th>번호</th><th>상품명</th><th>사진</th><th>가격</th>
+            </tr>
+        </thead>
+        <tbody>
+            <script>
+                
+                var photo_length = arrphoto.length
+                for(var i = 0; i < photo_length; i++) {
+                    document.write("<tr bgcolor='" + arrcolor[i] +"'>")
+                    document.write("<td>" + (i + 1) +"</td>" +
+                        "<td>" + arrtitle[i] +"</td>" + 
+                        "<td><img class='photo' src='" + arrphoto[i] + "'>" + "</td>" +
+                        "<td>" + arrprice[i] +"원</td>")
+
+                    document.write("</tr>")
+                    sum += arrprice[i]
+                }
+                
+            </script>
+        </tbody>
+    </table>
+    <script>
+        document.write("<b style='margin-left: 50px; font-size: 20px;'>" + "오늘 쓴 돈: " + sum + "원" + "</b>")
+    </script>
+</body>
+</html>

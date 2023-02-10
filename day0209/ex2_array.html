@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>배열 초기값으로 값 지정후 출력하기</h2>
+    <script>
+        var arr1 = ["장미꽃", "안개꽃", "국화꽃", "다알리아", "칸나"];
+        document.write(`arr1의 배열 갯수: ${arr1.length}<br>`)
+    </script>
+    <h2>arr1 배열값을 다양한 for문을 이용해서 출력해보자</h2>
+    <script>
+        for(var i = 0; i < arr1.length; i++) {
+            document.write(`<div>${arr1[i]}</div>`)
+        }
+    </script>
+    <h3>for of: 자동으로 갯수만큼 반복 python의 for i in arr 생각하면 됨</h3>
+    <script>
+        for(var a of arr1) {
+            document.write("<div>" + a + "</div>")
+        }
+    </script>
+    <h3>for in: 자동으로 갯수만큼 반복 인덱스 값이 idx로 넘어간다</h3>
+    <script>
+        for(var idx in arr1) {
+            document.write(`<div>${idx}: ${arr1[idx]}</div>`)
+        }
+    </script>
+    <hr>
+    <h2>arr1 데이터를 table에 출력하기</h2>
+    <script>
+        var arrcolor = ["#fafad2", "#c0c0c0", "#ffb6c1", "#98fb98", "#ffe4e1"];
+    </script>
+    <table border="1" style="border-collapse: collapse; width: 300px">
+        <tr bgcolor="#66cdaa">
+            <th>번호</th><th>꽃이름</th><th>색상</th>
+        </tr>
+        <script>
+            var s = "";
+            for(var idx in arr1) {
+                s += "<tr bgcolor=" + arrcolor[idx] + ">";
+                s += "<td align= 'center'>" + (Number(idx) + 1) + "</td>";
+                s += "<td align= 'center'>" + arr1[idx] + "</td>";
+                s += "<td align= 'center'>" + arrcolor[idx] + "</td>";
+                s += "</tr>";
+            }
+            document.write(s);
+        </script>
+    </table>
+</body>
+</html>

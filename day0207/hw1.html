@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        body * {
+            font-size: 1.5rem;
+            font-family: 'Single Day';
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div>
+            <h2>자바스크립트 과제 1</h2>
+            <b>이름</b>
+            <input id="irum" type="text">
+            <br><br>
+            <b>자바</b>
+            <input id="score_java" type="text">
+            <br><br>
+            <b>HTML</b>
+            <input id="score_html" type="text">
+            <br><br>
+            <button id="btn_result">결과 확인</button>
+        </div>
+        <div>
+            <b>result</b>
+            <br>
+            <b>이름: </b>
+            <b id="list_result1"></b>
+            <br>
+            <b>점수합: </b>
+            <b id="list_result2"></b>
+            <br>
+            <b>평균점수: </b>
+            <b id="list_result3"></b>
+        </div>
+    </div>
+    
+    
+
+    <script>
+        var nm = document.getElementById("irum");
+        var sj = document.getElementById("score_java");
+        var sh = document.getElementById("score_html");
+        var rl1 = document.getElementById("list_result1");
+        var rl2 = document.getElementById("list_result2");
+        var rl3 = document.getElementById("list_result3");
+
+        sj.onfocus = function() {
+            this.style.backgroundColor = "yellow";
+        }
+        sh.onfocus = function() {
+            this.style.backgroundColor = "yellow";
+        }
+
+        sj.onblur = function() {
+            this.style.background = "white";
+            var tn = Number(this.value);
+            if(isNaN(this.value)) {
+                alert("숫자를 입력해주세요");
+                sj.value = "";
+                this.focus();
+            }
+            if(tn > 100 || tn < 0) {
+                alert("0~100값을 입력해주세요");
+                sj.value = "";
+                this.focus();
+            }
+        }
+        sh.onblur = function() {
+            this.style.background = "white";
+            var tn = Number(this.value);
+            console.log(tn);
+            if(isNaN(this.value)) {
+                alert("숫자를 입력해주세요");
+                sh.value = "";
+                this.focus();
+            }
+            if(tn > 100 || tn < 0) {
+                alert("숫자를 입력해주세요");
+                sh.value = "";
+                this.focus();
+            }
+        }
+
+
+        
+        document.getElementById("btn_result").onclick = function() {
+            console.log(sj.value);
+            console.log(sh.value);
+
+            var score_sum = eval(`${sj.value}+${sh.value}`);
+            var score_avg = eval(`${score_sum}/2`);
+
+            console.log(nm.value);
+            console.log(score_sum);
+            console.log(score_avg);
+
+            rl1.innerHTML = nm.value;
+            rl2.innerHTML = score_sum;
+            rl3.innerHTML = score_avg;
+        }
+        
+    </script>
+
+</body>
+</html>

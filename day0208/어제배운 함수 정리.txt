@@ -1,0 +1,24 @@
+** 특정요소에서 속성의 값을 반환하면 그값을 변수가 받는다
+변수명 = 요소값.getAttribute("속성값");
+
+** 특정요소에서 속성의 값을 변경하고자 할 경우
+요소값.setAttribute("속성값", "변경할값");
+
+** 특정요소안에 HTML 태그를 포함해서 넣으려면
+요소값.innerHTML="html을 포함한 문자값"
+
+** 특정요소안에 단순한 텍스트만 넣을경우
+요소값.innerText="문자열";
+
+** isNaN (NaN: Not a Number): 순수한 숫자가 아닐경우 true를 반환
+isNaN("5a") return값: true
+isNaN("100") return값: false
+
+** 특정태그에서 id를 이용해서 요소값(인스턴스)를 얻으려면
+변수명 = document.getElementById("아이디")
+
+** eval("수식"): 문자열 형태의 수식을 계산해서 반환한다
+eval("4*5") return값: 20
+
+** 숫자 형태의 문자열을 계산 가능한 숫자로 변경하려면 
+Number() parseInt() parseFloat(): ()에 "12"입력시 string이 아닌 int혹은 float로 12반환

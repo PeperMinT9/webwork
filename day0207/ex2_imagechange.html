@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        body * {
+            font-size: 1.5rem;
+            font-family: 'Single Day';
+        }
+        #photo {
+            width: 300px;
+            height: 400px;
+            border: 10px inset gold;
+        }
+        figure {
+            text-align: center;
+        }
+        .buttons {
+            margin-left: 130px;
+            margin-top: 10px;
+        }
+        .buttons>button {
+            width: 100px;
+            height: 100px;
+            background-color: plum;
+            color: blue;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+        .radius30 {
+            border-radius: 30px;
+        }
+
+        .radius60 {
+            border-radius: 60px;
+        }
+    </style>
+</head>
+<body>
+    <figure>
+        <img src="../photo/K-035.png" id="photo" title="와플">
+        <figcaption>
+            <b id="irum">와플</b>
+        </figcaption>
+    </figure>
+
+    <div class="buttons">
+        <button type="button" id="btn1">팬케이크</button>
+        <button type="button" id="btn2">음식2</button>
+        <button type="button" id="btn3">음식3</button>
+        <button type="button" id="btn4">음식4</button>
+    </div>
+
+    <script>
+        var p = document.getElementById("photo");
+        var name = document.getElementById("name");
+
+        // 버튼1 이벤트
+        document.getElementById("btn1").onclick = () => {
+            p.setAttribute("src", "../photo/K-036.png");
+            p.setAttribute("title", document.getElementById("btn1").textContent);
+            var myname = prompt("출력할 이름을 입력해 주세요", "팬케이크");
+            // irum.innerHTML = `<b style='color: gray'>${myname}<b>`;
+            // 취소 누를시 "이름을 입력해주세요" 라고 출력
+            if(myname == null) {
+                irum.innerText="이름을 입력해주세요";
+            }
+            else {
+                irum.innerHTML = `<b style='color: gray'>${myname}<b>`;
+            }
+        }
+        // 버튼2 이벤트
+        document.getElementById("btn2").onclick = () => {
+            p.setAttribute("src", "../photo/K-037.png");
+            p.setAttribute("title", document.getElementById("btn2").textContent);
+            irum.innerHTML = `<b style='color: gray'>${document.getElementById("btn2").textContent}<b>`;
+            
+            p.setAttribute("class", "radius30");
+        }
+        // 버튼3 이벤트
+        document.getElementById("btn3").onclick = () => {
+            p.setAttribute("src", "../photo/K-038.png");
+            p.setAttribute("title", document.getElementById("btn3").textContent);
+            irum.innerHTML = `<b style='color: gray'>${document.getElementById("btn3").textContent}<b>`;
+            
+            p.setAttribute("class", "radius60");
+        }
+        // 버튼4 이벤트
+        document.getElementById("btn4").onclick = () => {
+            p.setAttribute("src", "../photo/K-039.png");
+            p.setAttribute("title", document.getElementById("btn4").textContent);
+            irum.innerHTML = `<b style='color: gray'>${document.getElementById("btn4").textContent}<b>`;
+            
+            p.setAttribute("class", "")
+        }
+    </script>
+</body>
+</html>

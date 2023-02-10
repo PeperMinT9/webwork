@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        body * {
+            font-size: 1.5rem;
+            font-family: 'Single Day';
+        }
+        body>button {
+            margin-left: 50px;
+        }
+    </style>
+</head>
+<body>
+    <img id="waffle" src="../photo/K-035.png" width="200">
+    <br>
+    <button id="bigger">점점크게</button>
+    <button id="smaller">점점작게</button>
+
+    <script>
+        var wa = document.getElementById("waffle");
+        var bi = document.getElementById("bigger");
+        var sm = document.getElementById("smaller");
+        var temp_string = "200px"
+        var temp_string2 = temp_string.slice(0,-2);
+        console.log(temp_string2)
+
+        bi.onclick = function() { // 크게
+            console.log(wa.getAttribute("width"))
+            // var temp_string = wa.getAttribute("width").slice(-2,-1);
+            // console.log(temp_string)
+            var sum = eval(`${wa.getAttribute("width")} + 10`);
+            console.log(sum);
+            wa.setAttribute("width", sum)
+        }
+        sm.onclick = function() { // 작게 
+            console.log(wa.getAttribute("width"))
+            var sum = eval(`${wa.getAttribute("width")} - 10`);
+            console.log(sum);
+            wa.setAttribute("width", sum)
+        }
+    </script>
+</body>
+</html>

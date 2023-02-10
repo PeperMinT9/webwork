@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .photo{
+            width: 100px;
+            height: 100px;
+            border: 1px solid gray;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 배열: 자바스크립트 ppt 29p -->
+    <h2>new Array로 선언후 배열에 값 넣어 출력하기</h2>
+    <script>
+        var arr1 = new Array();
+        arr1[0] = "red";
+        arr1[1] = "green";
+        arr1[2] = "magenta";
+        arr1[5] = "black";
+        arr1[6] = 1;
+        document.write(`arr1 배열의 갯수: ${arr1.length}<br>`);
+        for(var i = 0; i < arr1.length; i++) {
+            // document.write(`<b style="color: ${arr1[i]}">${arr1[i]}</b><br>`);
+            document.write("<b style='color: " + arr1[i] + "'> " + arr1[i] + typeof(arr1[i]) + "</b><br>")
+        }
+    </script>
+    <h2>new Array()로 선언후 push, pop을 이용해서 데이터 추가/삭제하기</h2>
+    <script>
+        var arr2 = new Array();
+        arr2.push("../photo/K-035.png");
+        arr2.push("../photo/K-036.png");
+        arr2.push("../photo/K-037.png");
+        arr2.push("../photo/K-038.png");
+        arr2.push("../photo/K-039.png");
+        arr2.push("../photo/K-040.png");
+
+        for (var i = 0; i < arr2.length; i++) {
+            document.write(`<img src= "${arr2[i]}" class="photo">`)
+        }
+
+        document.write("<h2>두개의 데이터를 pop으로 꺼낸 후 다시 출력하기</h2>")
+        arr2.pop();
+        arr2.pop();
+
+        for (var i = 0; i < arr2.length; i++) {
+            document.write(`<img src= "${arr2[i]}" class="photo">`)
+        }
+    </script>
+</body>
+</html>

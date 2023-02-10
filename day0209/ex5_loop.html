@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        img {
+            width: 100px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        //moviestar 사진과 함께 출력할 이름을 배열에 넣은후 사진과 이름 출력하기
+        var starname = new Array();
+        for(var i = 0; i < 21; i++) {
+            if (i < 10) {
+                starname.push(["K-0" + i + ".png", i + "번 사진"])
+            }
+            if (i >= 10 && i < 100) {
+                i == 20? starname.push(["K-" + i + ".gif", i + "번 사진"]) : starname.push(["K-" + i + ".png", i + "번 사진"])
+            }
+            
+            console.log(starname[i][0] + " : " + starname[i][1])
+        }
+        
+    </script>
+    <table>
+        <caption>한줄에 나오는 사진의 수를 변경해 보자</caption>
+        <script>
+            var remain = starname.length;
+            var one_line = 5; // 한라인에 몇개의 사진이 올지 결정
+            var line_number = 0; // 몇번째 라인인지 구분
+
+            while(true) {
+                if(remain >= one_line) {
+                    document.write("<tr>");
+                    for(var i = 0, h = i + one_line * line_number; i < one_line; i++, h++) {
+                        document.write("<td><img src='../photo/" + starname[h][0] + "'></td>");
+                    }
+                    document.write("</tr><tr>");
+                    for(var i = 0, h = i + one_line * line_number; i < one_line; i++, h++) {
+                        document.write("<td><b>" + starname[h][1] + "</b></td>");
+                    }
+                    document.write("</tr>");
+                    line_number += 1;
+                }
+
+                else {
+                    document.write("<tr>")
+                    for(var i = 0, h = i + one_line * line_number; i < remain; i++, h++) {
+                        document.write("<td><img src='../photo/" + starname[h][0] + "'></td>");
+                    }
+                    document.write("</tr><tr>")
+                    for(var i = 0, h = i + one_line * line_number; i < remain; i++, h++) {
+                        document.write("<td><b>" + starname[h][1] + "</b></td>");
+                    }
+                    document.write("</tr>");
+                    break;
+                }
+
+                remain -= one_line
+            }
+        </script>
+    </table>
+    <script>
+
+    </script>
+    
+</body>
+</html>

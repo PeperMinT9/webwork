@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div.box>div{
+            border: 1px solid gray;
+            width: 400px;
+            height: 130px;
+            margin-bottom: 10px;
+        }
+
+        #a{
+            /*x, y 방햐으로 반복된다: 기본값*/
+            background-image: url("../photo/K-035.png");
+            background-size: 30px 30px;
+            border: 10px dotted deepskyblue;
+        }
+        #b{
+            background-image: url('../photo/K-036.png');
+            background-size: 80px 80px;
+            background-repeat: repeat-x; /*x방향으로 반복*/
+            border: 10px double green;
+        }
+        #c{
+            border: 10px groove gold;
+            background-image: url("../photo/K-037.png");
+            background-repeat: no-repeat;
+            background-size: 80px 80px;
+            background-position: right bottom;
+            opacity: 0.3; /*흐려짐 전체가 흐려짐 파라미터: 0~1*/
+        }
+        #d{
+            border: 10px inset orangered;
+            background-image: url("../photo/K-038.png");
+            background-size: 100% 100%;
+            height: 200px;
+            color: white;
+            font-size: 30px;
+        }
+        #e{
+            border: 10px dashed rebeccapurple;
+            background: url('../photo/K-039.png') no-repeat right top;
+            background-size: contain;
+        }
+        #f{
+            background: url('../photo/K-040.png');
+            background-size: cover;
+            background-repeat: inherit;
+            background-size: 100px 100px;
+        }
+        /*
+        backgroud-size:
+        auto: 원래 배경 이미지 크기만큼만 표시
+        contain: 지정한 요소안에 배경이미지가 다 들어오도록 확대/축소
+        cover: 지정한 요소를 다 덮도록 배경이미지를 확대/축소
+        크기값: 100px 200px 같은 것
+        백문율: 지정한 요소를 기준으로 백분율로 표기
+        */
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div id="a"></div>
+        <div id="b"></div>
+        <div id="c"></div>
+        <div id="d">안녕하세요</div>
+        <div id="e"></div>
+        <div id="f"></div>
+    </div>
+    <div class="Hello">배경 이미지에 대한 공부</div>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <style>
+        #font {
+            margin: 50px 50px;
+            font-size: 24px;
+            font-family: Jua;
+            color: orange;
+        }
+    </style>
+    <script> // head 안에서 이벤트함수를 만들경우 반드시 onload 함수 안에서 구현한다
+        window.onload = function() {
+            var font = document.getElementById("font");
+
+            // 글꼴 변경 이벤트
+            document.getElementById("sel_font").onchange = function() {
+                font.style.fontFamily = this.value;
+            }
+
+            // 글꼴 크기 변경 이벤트
+            document.getElementById("sel_size").onchange = function() {
+                font.style.fontSize = this.value;
+            }
+
+            // 글꼴 색 변경 이벤트
+            document.getElementById("sel_color").onchange = function() {
+                font.style.color = this.value;
+            }
+
+            // 체크박스 이벤트
+            document.getElementById("chk_fill").onclick = function() {
+                console.log("value: " + this.value + " " + typeof(this.value));
+                console.log("check: " + this.checked + " " + typeof(this.checked));
+                if(this.checked) {
+                    font.style.backgroundColor = "gray";
+                }
+                else {
+                    font.style.backgroundColor = "white";
+                }
+            }
+
+            // 테두리선 이벤트
+            document.getElementById("chk_border").onclick = function() {
+                console.log("value: " + this.value + " " + typeof(this.value));
+                console.log("check: " + this.checked + " " + typeof(this.checked));
+                if(this.checked) {
+                    font.style.border = this.value;
+                }
+                else {
+                    font.style.border = "";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div style="margin: 10px 50px;">
+        <b>글꼴 변경: </b>
+        <select id="sel_font">
+            <!-- <option hidden disabled selected>글꼴을 선택하세요</option> -->
+            <option>Gamja Flower</option>
+            <option selected>Jua</option>
+            <option>Lobster</option>
+            <option>Nanum Pen Script</option>
+            <option>Single Day</option>
+        </select>
+        <br><br>
+        <b>글자크기 변경:</b>
+        <select id="sel_size">
+            <option>10px</option>
+            <option>13px</option>
+            <option>17px</option>
+            <option>20px</option>
+            <option selected>24px</option>
+            <option>30px</option>
+            <option>40px</option>
+            <option>50px</option>
+            <option>60px</option>
+            <option>70px</option>
+        </select>
+
+        <br><br>
+        <b>글자색 변경:</b>
+        <select id="sel_color">
+            <option>pink</option>
+            <option>black</option>
+            <option>#e4a145</option>
+            <option>red</option>
+            <option selected>orange</option>
+            <option>rgb(33, 157, 89)</option>
+            <option>rgba(33, 157, 89, 0.5)</option>
+        </select>
+
+        <br><br>
+        <b>채우기색 변경:</b>
+        <label><input id="chk_fill" type="checkbox">채우기</label>
+
+        <br><br>
+        <b>테두리선 변경:</b>
+        <label><input id="chk_border" type="checkbox" value="10px groove gray">테두리선</label>
+    </div>
+    <div id="font">
+        Happy Day<br>
+        행복한 하루
+    </div>
+    
+</body>
+</html>

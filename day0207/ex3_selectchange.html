@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        body * {
+            font-size: 1.5rem;
+            font-family: 'Single Day';
+        }
+    </style>
+</head>
+<body>
+    <img id="animal" src="../photo/K-035.png">
+    <br><br>
+    <select id="sel">
+        <option value="../photo/K-035.png">사진1</option>
+        <option value="../photo/K-036.png">사진2</option>
+        <option value="../photo/K-037.png">사진3</option>
+        <option value="../photo/K-038.png">사진4</option>
+        <option value="../photo/K-039.png">사진5</option>
+        <option value="../photo/K-040.png">사진6</option>
+        <option value="../photo/K-041.png">사진7</option>
+        <option value="../photo/K-042.png">사진8</option>
+    </select>
+
+    <script>
+        document.getElementById("sel").onchange = function(e){
+            // this는 이벤트가 발생한 자기 자신을 나타내는 인스턴스 변수이다
+            // 1번째 방법
+            // alert(this.value);
+
+            // 2번째 방법
+            alert(e.target.value); // e는 이벤트가 발생한 요소를 의미
+
+            // 이미지의 src를 select에서 얻은 값으로 변경해보자
+            document.getElementById("animal").setAttribute("src", e.target.value);
+        }
+    </script>
+
+    <br>
+    <b>선종류변경</b>
+    <br>
+    <select id="selborder">
+        <!-- 첫줄 고정 제목을 추가 -->
+        <option selected disabled hidden>select border</option>
+        <option value="5px inset gray">태두리선 1</option>
+        <option value="10px solid orange">태두리선 2</option>
+        <option value="5px dotted pink">태두리선 3</option>
+        <option value="1px solid green">태두리선 4</option>
+        <option value="10px groove gold">태두리선 5</option>
+    </select>
+
+    <script>
+        document.getElementById("selborder").onchange = function(e){
+            document.getElementById("animal").style.border = e.target.value;
+        }
+    </script>
+</body>
+</html>
