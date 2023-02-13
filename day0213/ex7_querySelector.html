@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1" style="border-collapse: collapse; width: 500px">
+        <caption></caption>
+        <tr>
+            <td class="thmb" >
+                <img src="../photo/K-00.png" width="100px">
+                <br>
+                <b>1번 이미지</b>
+            </td>
+            <td colspan="4" rowspan="5">
+                <img class="bigphoto" src="../photo/K-18.png">
+                <br>
+                <b id="mt">기본 이미지</b>
+            </td>
+        </tr>
+        <tr>
+            <td class="thmb">
+                <img src="../photo/K-01.png" width="100px">
+                <br>
+                <b>2번 이미지</b>
+            </td>
+        </tr>
+        <tr>
+            <td class="thmb">
+                <img src="../photo/K-02.png" width="100px">
+                <br>
+                <b>3번 이미지</b>
+            </td>
+        </tr>
+        <tr>
+            <td class="thmb">
+                <img src="../photo/K-03.png" width="100px">
+                <br>
+                <b>4번 이미지</b>
+            </td>
+        </tr>
+        <tr>
+            <td class="thmb">
+                <img src="../photo/K-04.png" width="100px">
+                <br>
+                <b>5번 이미지</b>
+            </td>
+        </tr>
+    </table>
+    <script>
+        // var thumb_nail = document.querySelectorAll(".thmb>img")
+        // var thumb_title = document.querySelectorAll(".thmb>b")
+        // var center = document.getElementById("big_img")
+        // var main_title = document.getElementById("mt")
+
+        // for(var i of thumb_nail) {
+        //     i.onmouseover = function() {
+        //         console.log("마우스 오버 감지됨")
+        //         new_photo = this.getAttribute("src")
+        //         console.log(this.td.b)
+        //         center.setAttribute("src", new_photo)
+
+        //         main_title.innerText = "b"
+        //     }
+        // }
+        var thumb_nail = document.querySelectorAll(".thmb")
+        var center = document.getElementById("big_img")
+        var main_title = document.getElementById("mt")
+        var thmb_mg
+        var thmb_title
+        for(var i of thumb_nail) {
+            i.onmouseover = function() {
+                console.log("마우스 오버 감지됨")
+                thmb_mg = this.querySelector("img").src;
+                thmb_title = this.querySelector("b").innerText
+                document.querySelector(".bigphoto").setAttribute("src", thmb_mg)
+                main_title.innerText = thmb_title
+            }
+        }
+    </script>
+</body>
+</html>

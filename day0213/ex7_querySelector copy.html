@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1" style="border-collapse: collapse; width: 500px">
+        <caption></caption>
+        <tr>
+            <td>
+                <img class="thmb" src="../photo/K-00.png" width="100px">
+                <br>
+                <b>1번 이미지</b>
+            </td>
+            <td colspan="4" rowspan="5">
+                <img id="big_img" src="../photo/K-18.png">
+                <br>
+                <h2>기본 이미지</h2>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img class="thmb" src="../photo/K-01.png" width="100px">
+                <br>
+                <b>2번 이미지</b>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img class="thmb" src="../photo/K-02.png" width="100px">
+                <br>
+                <b>3번 이미지</b>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img class="thmb" src="../photo/K-03.png" width="100px">
+                <br>
+                <b>4번 이미지</b>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img class="thmb" src="../photo/K-04.png" width="100px">
+                <br>
+                <b>5번 이미지</b>
+            </td>
+        </tr>
+    </table>
+    <script>
+        var thumb_nail = document.querySelectorAll(".thmb")
+        //var main_title = document.querySelectorAll(".thmb>b")
+        var center = document.getElementById("big_img")
+        var new_photo
+        for(var i of thumb_nail) {
+            i.onmouseover = function() {
+                //console.log("마우스 오버 감지됨")
+                new_photo = this.getAttribute("src")
+                center.setAttribute("src", new_photo)
+                // b태그의 글자를 읽어 h2태그로 보낸다
+                // 이벤트가 발생한 이미지의 부모로 가서 하위 태그를 찾는다
+                var thumb_title = this.parentElement.querySelector("b").innerText
+                document.querySelector("h2").innerText = thumb_title
+            }
+        }
+    </script>
+</body>
+</html>

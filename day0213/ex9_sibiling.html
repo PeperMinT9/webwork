@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="one">
+        <img src="../photo/K-00.png" width="130">
+        <div class="two">
+            <h4>Have a Nice Day!!!</h4>
+            <div class="three">
+                <img src="../photo/K-01.png" width="100">
+            </div>
+        </div>
+    </div>
+    <script>
+        // 0 사진에 마우스를 올리면 아래 글자의 속성을 변경
+        // 그리고 아래 1사진에 border 설정
+        // 마우스 벗어나면 다시 추가한 스타일을 제거
+        //.querySelector("img").src
+        var photo_0 = document.querySelector(".one>img")
+        var photo_1 = document.querySelector(".two")
+        var temp_store
+        photo_0.onmouseover = function() {
+            this.nextElementSibling.querySelector("h4").style.fontSize = "30px"
+            this.nextElementSibling.querySelector("h4").style.backgroundColor = "lightgray"
+            this.nextElementSibling.querySelector("h4").style.color = "blue"
+
+            this.nextElementSibling.querySelector(".three>img").style.border = "5px solid orange"
+        }
+
+        photo_0.onmouseout = function() {
+            this.nextElementSibling.querySelector("h4").style.fontSize = "17px"
+            this.nextElementSibling.querySelector("h4").style.backgroundColor = "white"
+            this.nextElementSibling.querySelector("h4").style.color = "black"
+
+            this.nextElementSibling.querySelector(".three>img").style.border = ""
+        }
+        
+    </script>
+</body>
+</html>

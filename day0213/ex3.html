@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 구구단 숫자를 입력후 엔터를 누르면 해당 구구단을 div 태그에 -->
+    <!-- 출력하시오 -->
+    <!-- 조건 1. 입력을 안하고 엔터를 누를시 "숫자를 입력해주세요" -->
+    <!-- 조건 2. 숫자가 아닐시 "숫자로만 입력해주세요" -->
+    
+    <b>구구단 숫자입력: </b>
+    <input id="gugu" type="text" style="width: 100px">
+    
+    <div id="result">
+        
+    </div>
+
+    <script>
+        var btnGugu = document.getElementById("gugu")
+        
+        // btnGugu.onkeyup = function(e) {}
+        btnGugu.addEventListener("keyup", function(e) {
+            var input_num = e.target.value
+            if(e.key == "Enter") {
+                if(input_num == "") {
+                    alert("숫자를 입력해주세요")
+                    this.focus()
+                }
+                else if(isNaN(input_num)) {
+                    alert("숫자로만 입력해주세요")
+                    e.target.value = ""
+                    this.focus()
+                }
+                else if(input_num < 2 || input_num >9) {
+                    alert("2~9사이의 정수를 입력해주세요")
+                    e.target.value = ""
+                    this.focus()
+                }
+                else {
+                    for(var i = 1; i < 10; i++) {
+                        document.getElementById("result").innerHTML += `<div>${i * btnGugu.value}</div>`
+                    }
+                } 
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .line1 {
+            border: 10px groove hotpink;
+            width: 500px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+        }
+        .line2 {
+            border: 1px solid gray;
+            width: 500px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            // 마우스를 올리면 class 값 변경
+            // .message중 첫 번째 요소값만 얻기
+            var m = document.querySelector(".message")
+            m.onmouseover = function() {
+                this.setAttribute("class", "message line1")
+            }
+            m.onmouseout = function() {
+                this.setAttribute("class", "message line2")
+
+            var photos = document.querySelectorAll(".images>.box>img")
+            var pre_image
+            for(var p of photos) {
+                p.onmouseover = function() {
+                    console.log("눌려짐")
+                    pre_image = this.getAttribute("src")
+                    
+                    this.setAttribute("src", "../photo/K-19.png")
+                    
+                }
+                p.onmouseout = function() {
+                    this.setAttribute("src", pre_image)
+                }
+
+            }
+
+            
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="message line2">
+        오늘은 즐거운 월요일입니다.
+    </div>
+    <div class="message">
+        이건 두번째입니다.
+    </div>
+    <hr>
+    <div class="images">
+        <img src="../photo/K-00.png" width="100">
+        <div class="box">
+            <img src="../photo/K-01.png" width="100">
+        </div>
+        <div class="box">
+            <img src="../photo/K-02.png" width="100">
+        </div>
+        <div class="box">
+            <img src="../photo/K-03.png" width="100">
+        </div>
+    </div>
+</body>
+</html>
