@@ -1,0 +1,33 @@
+로컬저장소: 파일이나 디렉토리를 저장하는 장소
+어디에 저장하는가? 내 컴퓨터 안에 로컬 디렉토리로 저장된 디렉토리안에
+                  .git이 생성되고 그 안에 각종 소스코드나 브랜치 등 정보가 
+                  저장이 된다.
+로컬 저장소에 일단 소스코드를 저장하는 명령: commit
+
+원격 저장소: 서버나 네트워크에 있는 저장소를 의미 일반적으로 로컬 저장소에
+            저장 후 원격 저장소에 저장 우리는 github라는 원격 저장소 이용
+원격 저장소에 저장하는 명령: push
+
+내 컴퓨터의 특정 폴더를 로컬저장소로 지정하는 방법: git init
+
+github의 repositorys를 연결
+git remote add origin (깃허브 주소)
+그런데 기존에 다른 깃주소에 이미 연결되어 있을경우 오류발생
+git remote set-url (깃허브 주소)
+
+원격저장소의 소스코드를 내 컴퓨터에 복사해서 가져오려면
+git clone (원격저장소경로(깃허브 주소))
+
+commit: git commit -m (message)
+push: git push origin (branch)
+checkout: git checkout (branch)
+branch: git branch (branch) => 새 브랜치 생성
+        git branch => 브랜치 조회
+        git branch (branch) -d => 브랜치 삭제
+git: git log => 로그
+     git pull => 원격 저장소 내용을 로컬 저장소로 가져옴
+     git pull origin master => 마스터의 내용을 가져옴
+
+master branch의 test 브랜치의 소스코드를 병합하려면
+git checkout master
+git merge test
