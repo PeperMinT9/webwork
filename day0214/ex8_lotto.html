@@ -25,11 +25,75 @@
             margin-left: 20px;
             margin-top: 20px;
             border-radius: 100px;
+            /* flex일 경우 수평방향 가운데: flex-start, center, space-between,*/
+            /* space-around, space-evenly */
+            /* justify-content: space-around; */
+            justify-content: space-around; /* 아이템들의 둘레("around")에 균일한 간격 */
+            align-items: center; /* flex일 경우 수직방향 가운데 */
         }
         body {
             background-color: #ccffff;
         }
+        div.box div.lotto {
+            font-size: 45px;
+            width: 80px;
+            height: 80px;
+            text-align: center;
+            line-height: 80px;
+            background-color: #ffb6c1;
+            border-radius: 100px;
+        }
+
+        #btnLotto {
+            width: 200px;
+            height: 100px;
+            margin: 30px 200px;
+            font-size: 23px;
+            cursor: pointer;
+        }
+
+        #btnLotto:hover {
+            background-color: black;
+            color: white;
+            box-shadow: 5px 5px 5px gray;
+        }
     </style>
+    <script>
+        window.onload = function() {
+            let today = new Date()
+            let year = today.getFullYear()
+            let month = today.getMonth() + 1
+            let day = today.getDate()
+
+            document.querySelector("b.day").innerHTML = 
+            // `${year}-${month}-${day}`
+            `${year}-${month < 10? "0" + month : month}-${day < 10? "0" + day : day}`
+
+            var lotto = document.querySelectorAll("div.box>div.lotto")
+            lotto[1].style.backgroundColor = "#ffccaa"
+            lotto[3].style.backgroundColor = "#ffccaa"
+            lotto[1].style.color = "#258235"
+            lotto[3].style.color = "#258235"
+            lotto[5].style.backgroundColor = "#ffccaa"
+            lotto[5].style.color = "#258235"
+
+            document.getElementById("btnLotto").onclick = function() {
+                let nums = new Array(6)
+                for(let i = 0; i < 6; i++) {
+                    nums[i] = parseInt(Math.random() * 45) + 1
+                    for(let j = 0; j < i; j++) {
+                        if(nums[i] == nums[j]) {
+                            i--
+                            break
+                        }
+                    }
+                }
+                for(let i in lotto) {
+                    lotto[i].innerHTML = nums[i]
+                }
+            }
+        }
+    </script>
     
 </head>
 <body>
@@ -37,6 +101,10 @@
         <b class="num">1025</b>회
         <b class="day">0000-00-00</b>
     </div>
+    <script>
+        
+        
+    </script>
     <div class="box">
         <div class="lotto">1</div>
         <div class="lotto">1</div>

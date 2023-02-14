@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            document.getElementById("txtin0").onkeyup = function(e) {
+                if(e.keyCode == 13) {
+                    let v = this.value
+                    console.log(document.querySelector(".one"))
+                    document.querySelector(".one").innerText = v
+                }
+            }
+
+            document.getElementById("txtin1").onkeydown = function(e) {
+                document.querySelector(".two").innerText = this.value;
+            }
+
+            document.getElementById("txtin2").onchange = function(e) {
+                document.querySelector(".three").innerText = this.value
+                document.querySelector(".three").style.backgroundColor = this.value
+            }
+
+            //4번 굵게 체크박스 이벤트
+            document.querySelector("#chkbold").onclick = function() {
+                if(this.checked) {
+                    document.querySelector(".four").style.fontWeight = "bold"
+                }
+                else {
+                    document.querySelector(".four").style.fontWeight = "normal"
+                }
+            }
+            //4번 밑줄 체크박스 이벤트
+            document.querySelector("#chkline").onclick = function() {
+                if(this.checked) {
+                    document.querySelector(".four").style.textDecoration = "underline"
+                }
+                else {
+                    document.querySelector(".four").style.textDecoration = "none"
+                }
+            }
+            //5번 그룹라디오버튼
+            let tcolor = document.querySelectorAll(".tcolor")
+            let color_length = tcolor.length
+            for(let i = 0; i < color_length; i++) {
+                tcolor[i].onclick = function() {
+                    document.querySelector(".five").style.color = this.value
+                } 
+            }
+            //5번 배경색
+            let bcolor = document.querySelectorAll(".bcolor")
+            let back_color_length = bcolor.length
+            document.querySelector("#btncolor").onclick = function() {
+                for(let i = 0; i < back_color_length; i++) {
+                    if(bcolor[i].checked) {
+                        document.querySelector(".five").style.backgroundColor = bcolor[i].value
+                    }
+                }
+            }
+            //6번: select
+            document.querySelector("#selfood").onchange = function() {
+                let tag = `<img src="${this.value}" width= 130>`
+                document.querySelector(".six").innerHTML = tag
+            }
+        }
+    </script>
+    <!-- <style>
+        .four {
+            text
+        }
+    </style> -->
+</head>
+<body>
+    <b>자바스크립트로 폼태그값 읽기 연습</b>
+    <table border="1" style="width: 750px; border-collapse: collapse;">
+        <tr bgcolor="gray">
+            <th width="150">종류</th>
+            <th width="250">폼태그</th>
+            <th width="150">결과</th>
+        </tr>
+        <tr>
+            <td>1. input-text</td>
+            <td><input id="txtin0" type="text" value="bitcamp" style="width: 100px;">:입력후엔터</td>
+            <td class="one"></td>
+        </tr>
+        <tr>
+            <td>2. input-text</td>
+            <td><input id="txtin1" type="text" value="bitcamp" style="width: 100px;">:입력하면 바로 출력</td>
+            <td class="two"></td>
+        </tr>
+        <tr>
+            <td>3. input-color</td>
+            <td><input id="txtin2" type="color" value="#cfcfcf">:색상변경</td>
+            <td class="three"></td>
+        </tr>
+        <tr>
+            <td>4. input-checkbox</td>
+            <td>
+                <label><input id="chkbold" type="checkbox">굵게</label>
+                <label><input id="chkline" type="checkbox">밑줄</label>
+            </td>
+            <td class="four">4</td>
+        </tr>
+        <tr>
+            <td>5. input-radio</td>
+            <td>
+                <!--  radio는 같은 그룹으로 묶을경우 반드시 name명이 같아야한다 -->
+                <label><input class="tcolor" type="radio" name="font-color" value="orange">오렌지색</label>
+                <label><input class="tcolor" type="radio" name="font-color" value="blue">파랑색</label>
+                <label><input class="tcolor" type="radio" name="font-color" value="red">빨강색</label>
+                <label><input class="tcolor" type="radio" name="font-color" value="yellow">노란색</label>
+                
+                <h5>배경색 선택</h5>
+                <label><input class="bcolor" type="radio" name="back-color" value="#ecf000">노란색</label>
+                <label><input class="bcolor" type="radio" name="back-color" value="#ff0000">빨강색</label>
+                <label><input class="bcolor" type="radio" name="back-color" value="#1e00ff">파란색</label>
+                <label><input class="bcolor" type="radio" name="back-color" value="	#ff8f0f" checked>오렌지색</label>
+                <button id="btncolor" type="button">변경</button>
+            </td>
+            <td class="five">글자색변경</td>
+        </tr>
+
+        <tr>
+            <td>6. select</td>
+            <td>
+                이미지 선택:
+                <select id="selfood">
+                    <option hidden selected disabled>선택하세요</option>
+                    <option value="../photo/K-00.png">사진 0</option>
+                    <option value="../photo/K-01.png">사진 1</option>
+                    <option value="../photo/K-02.png">사진 2</option>
+                    <option value="../photo/K-03.png">사진 3</option>
+                </select>
+            </td>
+            <td class="six"></td>
+        </tr>
+        
+    </table>
+</body>
+</html>

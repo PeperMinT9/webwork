@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        td {
+            text-align: center;
+            width: 600px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    원하는 텍스트 입력:
+    <input id="main_text" type="text">
+    <br>
+    글자크기:
+    <select id="fs">
+        <option disabled hidden selected>선택해주세요</option>
+        <option value="10px">10px</option>
+        <option value="20px">20px</option>
+        <option value="30px">30px</option>
+        <option value="40px">40px</option>
+    </select>
+    글자색: 
+    <input id="fc" type="color">
+    배경색:
+    <input id="bgc" type="color">
+    <br>
+    글꼴종류:
+    <input class="ff" type="radio" name="font-family-selector" value="Gamja Flower">Gamja
+    <input class="ff" type="radio" name="font-family-selector" value="Jua">Jua
+    <input class="ff" type="radio" name="font-family-selector" value="Nanum Pen Script">Nanum
+    <input class="ff" type="radio" name="font-family-selector" value="Single Day">Single
+    <br>
+
+    테두리 두께:
+    <input id="border_thichness" type="text">
+    테두리 색상:
+    <input id="bc" type="color" value="#452825">
+    <br>
+    테두리 타입:
+    <input class="sbt" type="radio" name="selector-border-type" value="solid" checked>solid
+    <input class="sbt" type="radio" name="selector-border-type" value="ridge">ridge
+    <input class="sbt" type="radio" name="selector-border-type" value="dotted">dotted
+    <input class="sbt" type="radio" name="selector-border-type" value="dashed">dashed
+    <br>
+    
+    <table>
+        <tr>
+            <td id="main_display">디스플레이</td>
+        </tr>
+    </table>
+    
+    <script>
+        var md = document.getElementById("main_display")
+        
+        document.querySelector("#main_text").onkeyup = function(e) {
+            if(e.keyCode == 13) {
+                md.innerText = this.value
+            }
+        }
+
+        document.querySelector("#fs").onchange = function() {
+            md.style.fontSize = this.value
+            console.log(this.value)
+        }
+
+        document.getElementById("fc").onchange = function() {
+            md.style.color = this.value
+        }
+
+        document.getElementById("bgc").onchange = function() {
+            md.style.backgroundColor = this.value
+        }
+
+        document.querySelectorAll(".ff").onchange = function() {
+            var font_family_length = document.querySelectorAll(".ff").length
+
+        }
+
+        var font_family = document.querySelectorAll(".ff")
+        var ff_length = font_family.length
+        for(let i = 0; i < ff_length; i++) {
+            font_family[i].onclick = function() {
+                md.style.fontFamily = this.value
+            }
+        }
+
+        document.querySelector("#border_thichness").onkeyup = function(e) {
+            if(e.keyCode == 13) {
+                console.log(this.value + "px")
+                md.style.borderWidth = this.value + "px"
+            }
+            
+        }
+
+        document.getElementById("bc").onchange = function() {
+            md.style.borderColor = this.value
+        }
+
+        var border_type = document.querySelectorAll(".sbt")
+        var bt_length = border_type.length
+        for(let i = 0; i < bt_length; i++) {
+            border_type[i].onclick = function() {
+                md.style.borderStyle = this.value
+            }
+        }
+    </script>
+
+</body>
+</html>
