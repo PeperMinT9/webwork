@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .photo {
+            width: 230px;
+            height: 250px;
+            border: 10px inset goldenrod;
+        }
+
+        .message {
+            margin-left: 50px;
+            text-shadow: 5px 5px 5px gray;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var arrimage = new Array()
+            arrimage.push("../photo/K-01.png")
+            arrimage.push("../photo/K-02.png")
+            arrimage.push("../photo/K-03.png")
+            arrimage.push("../photo/K-04.png")
+            arrimage.push("../photo/K-05.png")
+            arrimage.push("../photo/K-00.png")
+
+            var arrmessage = ["오늘은 발렌타인데이", "재미있는 자바스크립트",
+                "Have a Good Day", "점심뭐먹지", "공부하자 공부해"]
+
+            setInterval(() => {
+                var a = parseInt(Math.random() * 6) // 사진용
+                var b = parseInt(Math.random() * 5) // 메세지용
+                document.querySelector(".photo").setAttribute("src", arrimage[a])
+                document.querySelector(".message").innerText = arrmessage[b]
+            }, 500)
+        }
+    </script>
+</head>
+<body>
+    <img class="photo" src="../photo/K-00.png">
+    <br><br>
+    <h1 class="message">Happy Day!!!</h1>
+</body>
+</html>
