@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div.loginbox table tr {
+            height: 40px;
+        }
+        div.loginbox table * {
+            font-size: 20px;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            // 아이디 비번이 저장된 배열변수
+            let memberid = ["bit701", "angel", "happy", "nice", "java"]
+            let memberpw = ["1234", "0000", "1357", "9999", "8888"]
+
+            // 처음 로딩시 저장된 아이디와 체크값을 얻는다
+            let loginid = localStorage.loginid;
+            let idcheck = localStorage.idcheck;
+
+            // 체크값이 만약 true면 id에 값을 넣어주고 체크도 설정한다
+            if(idcheck == null || idcheck == "false") {
+                // 체크 속성 제거
+                document.getElementById("chksave").removeAttribute("checked");
+                // 아이디도 지우기
+                document.getElementById("txtid").value = "";
+            }
+            else {
+                // 체크 속성 추가
+                document.getElementById("chksave").setAttribute("checked" ,true);
+                // 아이디도 넣기
+                document.getElementById("txtid").value = loginid;
+            }
+
+            document.getElementById("btnlogin").onclick = function() {
+                let id = document.getElementById("txtid").value;
+                let pw = document.getElementById("txtpass").value;
+                let idcheck = document.getElementById("chksave").checked;
+                var id_arr = memberid.length
+                var id_checker = 0
+                var pw_checker = 0
+
+                for(let i = 0; i < id_arr; i++) {
+                    if(id == memberid[i] && pw == memberpw[i]) {
+                        location.href = "ex1_canvas.html"
+                        localStorage.idcheck = idcheck;
+                        localStorage.loginid = id;
+                        id_checker = 1;
+                    }
+                }
+                if(id_checker != 1) {
+                    for(var i = 0; i < id_arr; i++) {
+                        if(id == memberid[i]) {
+                            pw.value = ""
+                            return alert("비밀번호를 확인해주세요")
+                        }
+                    }
+                    pw_checker = 1;
+                }
+                if(pw_checker == 1) {
+                    return alert("아이디와 비밀번호를 확인해주세요")
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="loginbox">
+        <table border="1" style="border-collapse: collapse;">
+            <tr>
+                <th colspan="2">
+                    <label>
+                        <input type="checkbox" id="chksave">아이디저장
+                    </label>
+                </th>
+            </tr>
+            <tr>
+                <th bgcolor="lightgray" width="100">아이디</th>
+                <td width="100">
+                    <input type="text" id="txtid" placeholder="아이디" autofocus>
+                </td>
+            </tr>
+            <tr>
+                <th bgcolor="lightgray" width="100">비밀번호</th>
+                <td width="100">
+                    <input type="password" id="txtpass" placeholder="비밀번호">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <button type="button" id="btnlogin">회원로그인</button>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

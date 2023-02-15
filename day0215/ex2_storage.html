@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #view {
+            position: absolute;
+            left: 200px;
+            top: 50px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Web Storage: 클라이언ㅌ의 브라우저에 소량의 데이터를 저장해두기 위한 기억공간 -->
+    <!-- 자바의 쿠키와 비슷 -->
+    <!-- localStorage: 반영구적 보관 크기는 약 5mb, sessionStorage: 세션이 유효한만큼만 보관 -->
+    <h2>localStorage & sessionStorage</h2>
+
+    <button type="button" id="btnadd">저장</button>
+    <br>
+    <button type="button" id="btndel">삭제</button>
+    <br>
+    <button type="button" id="btnalldel">모두삭제</button>
+    <br>
+    <button type="button" id="btnview">내용보기</button>
+    <br>
+    <div id="view">결과...</div>
+
+    <script>
+        document.getElementById("btnadd").onclick = function() {
+            // localStorage에 값을 저장하는 방법이 3가지가 있다
+            // 페이지를 닫으면 localStorage에 남아있고 sessionStorage에서는 삭제되었다
+            localStorage.setItem("loginid", "master")
+            localStorage.address = "서울시 강남구"
+            localStorage["hp"] = "010-1111-2222"
+
+            sessionStorage.className = "Java701";
+        }
+        document.getElementById("btndel").onclick = function() {
+            // address를 지워보자
+            localStorage.removeItem("address");
+        }
+        document.getElementById("btnalldel").onclick = function() {
+            // 전체 로걸스토리지 삭제
+            localStorage.clear();
+        }
+        document.getElementById("btnview").onclick = function() {
+            let loginid = localStorage.getItem("loginid")
+            let address = localStorage.address;
+            let hp = localStorage["hp"]
+
+            document.getElementById("result").innerText = 
+            `loginid: ${loginid}
+            address: ${address}
+            hp: ${hp}`
+        }
+    </script>
+
+</body>
+</html>
