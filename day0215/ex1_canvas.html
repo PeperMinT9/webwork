@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            // canvas 태그의 요소값
+            let can = document.getElementById("can")
+            // context 값을 얻는다
+            let ctx = can.getContext("2d")
+            // 사각형
+            ctx.strokeStyle = "green"
+            ctx.lineWidth = 5
+            ctx.strokeRect(10, 10, 100, 100) // x, y, w, h 테두리선만 있는 사각형
+
+            // 채워진 사각형
+            ctx.fillStyle = "rgba(253, 159, 175, 1)"
+            ctx.fillRect(120, 10, 100, 100)
+
+            // 그래픽 글자
+            ctx.fillStyle = "orange"
+
+            // 글자 그림자
+            ctx.shadowOffsetX = 5
+            ctx.shadowOffsetY = 5
+            ctx.hadowBlur = 10
+            ctx.shadowColor = "lightgray"
+
+            // 그래픽 글자
+            ctx.font = "30px Comic Sans MS" // 글꼴크기 글꼴명
+            ctx.fillText("Have a Nice Day!!", 10, 150) // 문자열, x, y
+
+            // 그래픽 글자
+            ctx.fillStyle = "green"
+
+            // 글자 그림자
+            ctx.shadowOffsetX = 5
+            ctx.shadowOffsetY = 5
+            ctx.hadowBlur = 10
+            ctx.shadowColor = "lightgray"
+
+            // 그래픽 글자
+            ctx.font = "30px Gamja Flower" // 글꼴크기 글꼴명
+            ctx.fillText("오늘은 수요일 입니다", 10, 200) // 문자열, x, y
+
+            // 이미지 넣기
+            let photo = new Image()
+            photo.src = "../photo/00.jpg"
+
+            photo.onload = function() {
+                ctx.drawImage(photo, 300, 50)
+            }
+
+            // 선그리기
+            ctx.lineWidth = 3
+            ctx.strokeStyle = "magenta"
+            ctx.beginPath()
+            ctx.moveTo(50, 300)
+            ctx.lineTo(300, 300)
+            ctx.lineTo(175, 240)
+            ctx.lineTo(500, 300)
+            ctx.stroke()
+            ctx.closePath()
+        }
+    </script>
+</head>
+<body>
+    <h2>html5의 canvas 기능</h2>
+    <canvas id="can" width="500" height="400" style="border: 1px solid black">
+
+    </canvas>
+</body>
+</html>
