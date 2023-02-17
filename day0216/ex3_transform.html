@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #ex1, #ex2 {
+            background-color: #903;
+            width: 100px;
+            height: 20px;
+            overflow: hidden;
+        }
+        #ex1:hover, #ex2:hover {
+            width: 400px;
+        }
+        /* width 변경시 효과 */
+        #ex1 {
+            transition-property: width;
+            transition-duration: 2s;
+        }
+        #ex2 {
+            transition: width 5s; /* 위의 속성 2개를 한번에 설정 */
+        }
+        #ex3 img{
+            width: 100px;
+            height: 100px;
+            opacity: 0.2;
+            border: 5px solid #903;
+            transform: rotate(0deg);
+            cursor: pointer;
+            transition: all 3s;
+        }
+        #ex3 img:hover {
+            opacity: 1.0;
+            border-color: #204;
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body>
+    <p id="ex1">transition test</p>
+    <p id="ex2">transition test</p>
+    <p id="ex3">
+        <img src="../photo/00.jpg">
+    </p>
+</body>
+</html>
