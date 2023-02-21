@@ -37,7 +37,7 @@
         })
         
     </script>
-    
+
     <br><hr>
     
     <div class="two"></div>
@@ -54,6 +54,19 @@
             $("div.two").append(`<img src="${item}" class="photo">`)
         })
 
+    </script>
+    <br><hr>
+    <div class="three"></div>
+    <script>
+        let array2 = [
+            {"message" : "Hello", "color" : "red"},
+            {"message" : "안녕하세요", "color" : "green"},
+            {"message" : "반가워요", "color" : "pink"},
+        ]
+
+        $.each(array2, function(idx, item) {
+            $("div.three").append("<h1 style='color: " + item.color + ";'>" + item.message + "</h3>")
+        })
     </script>
 </body>
 </html>

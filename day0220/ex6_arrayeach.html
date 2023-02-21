@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        figure {
+            float: left;
+        }
+        figure>img {
+            width: 130px;
+            height: 160px;
+            border: 1px solid gray;
+        }
+        figure>figcaption {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="moviestar"></div>
+
+    <script>
+        let stars = [
+            {"name" : "이름1", "srcname" : "../photo/00.jpg", "addr" : "서울시 한남동"},
+            {"name" : "이름2", "srcname" : "../photo/01.jpg", "addr" : "서울시 용산동"},
+            {"name" : "이름3", "srcname" : "../photo/02.jpg", "addr" : "서울시 둔촌동"},
+            {"name" : "이름4", "srcname" : "../photo/03.jpg", "addr" : "서울시 신정동"},
+            {"name" : "이름5", "srcname" : "../photo/04.jpg", "addr" : "서울시 옥동"}
+        ]
+
+        $.each(stars, function(idx, item) {
+            let s = 
+            `
+                <figure>
+                    <img src="${item.srcname}">
+                    <figcaption>이름: ${item.name}</figcaption><br>
+                    <figcaption>주소: ${item.addr}</figcaption>
+                </figure>
+            `
+            document.write(s)
+        })
+    </script>
+    
+</body>
+</html>
