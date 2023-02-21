@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <title>Document</title>
+
+    <style>
+        label.grade {
+            width: 300px;
+        }
+        
+        label.lang {
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h4 class="alert alert-info">학력시험</h4>
+    <script>
+        let grade = ["고졸" , "초대졸", "대졸", "석사", "박사", "유학"]
+        let s0 = ""
+        s0 += "<label class='grade'>"
+        $.each(grade, function(idx, item) {
+            s0 += "<input type='radio' name='last_grade' value='" + item + "' class='form-check-input'>" + item
+            if((idx + 1) % 3 == 0 )
+                s0 += "<br>";
+        })
+        s0 += "</label>"
+        console.log(s0)
+        document.write(s0)
+    </script>
+    <br>
+
+
+    <h4 class="alert alert-info">학력시험</h4>
+    <script>
+        let lang = ["JAVA" , "C/C++", "PYTHON", "JAVASCRIPT", "ES6", "Spring Framwork",
+                    "Spring Boot", "Git", "Oracle", "MySQL", "PostgreSQL", "JSP", "Thymeleaf",
+                    "CSS", "HTML5"]
+        let s1 = ""
+        s1 += "<label class='lang'>"
+        $.each(lang, function(idx, item) {
+            s1 += "<input type='checkbox' name='enable_lang' value='" + item + "' class='form-check-input'>" + item
+            if((idx + 1) % 3 == 0 )
+                s1 += "<br>";
+        })
+        s1 += "</label>"
+        console.log(s1)
+        document.write(s1)
+    </script>
+    <br><br>
+
+    <button type="button" class="btnview btn btn-info" style="width: 200px; margin-left: 100px">결과확인</button>
+    <br><br>
+
+    <div class="view alert alert-info" style="width: 500px; font-size: 20px;"></div>
+
+    <script>
+        // 버튼 클릭시 학력사항 출력
+        // 구현가능한 언어 총 x개 선택 출력 그다음에 목록을 출력(목록앞에 1부터)
+        // 단 학력사항 선택안될경우 경고 출력
+        $(".btnview").click(function() {
+            let s = ""
+            let grade_check = $("input[name = 'last_grade']:checked")
+            if (grade_check.length == 0) {
+                alert("학력이 입력되지 않았습니다")
+            }
+            s += $("input[name = 'last_grade']:checked").val() + "<br>"
+            let lang_check = $("input[name = 'enable_lang']:checked")
+            $.each(lang_check, function(idx, item) {
+                console.log(item)
+                s += "가능언어" + (idx + 1) + ": " + item.value + "<br>"
+            })
+            $("div.view").html(s)
+        })
+    </script>
+</body>
+</html>
