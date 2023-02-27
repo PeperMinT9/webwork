@@ -45,9 +45,9 @@
         <input id="input_num" type="text" autofocus maxlength="3" placeholder="숫자입력후엔터">
         <b id="result_calc"></b>
         <div class="horizental_result">
-            <img id="result_img0" src="">
+            <!-- <img id="result_img0" src="">
             <img id="result_img1" src="">
-            <img id="result_img2" src="">
+            <img id="result_img2" src=""> -->
         </div>
         <br><br><hr>
         <button type="button" style="width: 130px; margin: 10px 100px;" class="btninit">리셋</button>
@@ -65,26 +65,34 @@
                     return
                 }
 
-                $("#result_img0").show()
-                $("#result_img1").show()
-                let hn = parseInt($(this).val() / 100) // 100의 자리 저장
-                let tn = parseInt($(this).val() % 100 / 10) // 10의 자리 저장
-                let n = parseInt($(this).val() % 10) // 1의 자리 저장
+                // $("#result_img0").show()
+                // $("#result_img1").show()
+                // let hn = parseInt($(this).val() / 100) // 100의 자리 저장
+                // let tn = parseInt($(this).val() % 100 / 10) // 10의 자리 저장
+                // let n = parseInt($(this).val() % 10) // 1의 자리 저장
                 
-                $("#result_img0").attr("src", `../num/${hn}.gif`)
-                $("#result_img1").attr("src", `../num/${tn}.gif`)
-                $("#result_img2").attr("src", `../num/${n}.gif`)
+                // $("#result_img0").attr("src", `../num/${hn}.gif`)
+                // $("#result_img1").attr("src", `../num/${tn}.gif`)
+                // $("#result_img2").attr("src", `../num/${n}.gif`)
 
-                if(hn == 0) {
-                    $("#result_img0").hide()
-                }
-                if(hn == 0 && tn == 0) {
-                    $("#result_img0").hide()
-                    $("#result_img1").hide()
-                }
+                // if(hn == 0) {
+                //     $("#result_img0").hide()
+                // }
+                // if(hn == 0 && tn == 0) {
+                //     $("#result_img0").hide()
+                //     $("#result_img1").hide()
+                // }
 
-                console.log(`100의자리: ${hn}  10의자리: ${tn}  1의자리: ${n}`)
-                // $(this).val()
+                // 숫자를 분리하여 이미지로 나타내기
+                let num_length = $(this).val().length
+                let s = ""
+                for(let i = 0; i < num_length; i++) {
+                    let num = $(this).val().charAt(i)
+                    s += `<img src='../num/${num}.gif'>`
+                }
+                $(".horizental_result").html(s)
+
+                // console.log(`100의자리: ${hn}  10의자리: ${tn}  1의자리: ${n}`)
                 if(init_num > $(this).val()) {
                     $("#result_calc").text(`${$(this).val()} 보다 큽니다`)
                 }
