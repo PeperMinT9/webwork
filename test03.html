@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img id="photo" src="./photo/00.jpg">
+
+    <script>
+        let photo0 = document.querySelector("#photo")
+        let origin_photo = photo0.getAttribute("src")
+        
+        photo0.onmouseover = function() {
+            photo0.setAttribute("src", "./photo/01.jpg")
+        }
+        photo0.onmouseout = function() {
+            photo0.setAttribute("src", origin_photo)
+        }
+    </script>
+</body>
+</html>

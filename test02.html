@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="main_div">
+        <div class="sub_div">.</div>
+        <div class="sub_div">.</div>
+        <div class="sub_div">.</div>
+        <div class="sub_div">.</div>
+        <div class="sub_div">.</div>
+        <div class="sub_div">.</div>
+    </div>
+
+    <script>
+        let colors= "red,blue,green,magenta,orange,pink";
+        color_list = colors.split(",")
+        $("div.sub_div").css({
+            "width" : "100px",
+            "height" : "50px",
+            "border" : "3px solid black",
+            "float" : "left"
+        })
+
+        $.each(color_list, function(idx, item) {
+            $("div.sub_div").eq(idx).css("background-color", item)
+        })
+    </script>
+</body>
+</html>

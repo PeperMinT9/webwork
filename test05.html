@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <input id="input_0" type="number">
+    <input id="input_1" type="number">
+    <input id="input_2" type="number">
+    <br>
+    <button id="btn_calc">계산</button>
+    <br>
+    <div id="result"></div>
+    <script>
+        $("#btn_calc").click(function() {
+            let sum = parseInt($("#input_0").val()) + parseInt($("#input_1").val()) + parseInt($("#input_2").val())
+            let avg = sum / 3
+            let a = 
+            `
+                <div>총점: ${sum}</div>
+                <div>평균: ${avg}</div>
+            `
+            $("#result").html(a)
+        })
+    </script>
+</body>
+</html>

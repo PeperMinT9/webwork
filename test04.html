@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let data=[
+            {name:"이상이", addr:"강남구", age:"32세"},
+            {name:"이혜영", addr:"영등포구", age:"29세"},
+            {name:"제니", addr:"제주도", age:"38세"},
+            {name:"수지", addr:"부산시", age:"21세"}
+        ]
+        let s = "<table>"
+        $.each(data, function(idx, item) {
+            s += 
+            `
+            <tr>
+                <td>${item.name}</td>
+                <td>${item.addr}</td>
+                <td>${item.age}</td>
+            </tr>
+            `
+        })
+        s += "</table>"
+        document.write(s)
+        // document.write("</table>")
+    </script>
+</body>
+</html>
